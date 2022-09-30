@@ -1,0 +1,23 @@
+version: "3.5"
+
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    hostname: jellyfin
+    restart: always
+    environment:
+      JELLYFIN_PublishedServerUrl: http://v.wanyong.info
+    volumes:
+      - /volume1/docker/jellyfin/config:/config
+      - /volume1/docker/jellyfin/cache:/cache
+      - /volume1/Movies:/movies:ro
+      - /volume1/TV:/tv:ro
+    networks:
+      - jellyfin
+    ports:
+      - "8069:8069"
+
+networks:
+  jellyfin:
+    name: jellyfin

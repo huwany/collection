@@ -1,0 +1,13 @@
+version: "3.5"
+
+services:
+  homeassistant:
+    image: homeassistant/home-assistant:latest
+    container_name: homeassistant
+    hostname: homeassistant
+    network_mode: host
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - /volume1/docker/homeassistant/config:/config

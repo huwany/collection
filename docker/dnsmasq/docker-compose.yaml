@@ -1,0 +1,19 @@
+version: "3.5"
+
+services:
+  dnsmasq:
+    image: jpillora/dnsmasq:latest
+    container_name: dnsmasq
+    hostname: dnsmasq
+    restart: always
+    volumes:
+      - /volume1/docker/dnsmasq/dnsmasq.conf:/etc/dnsmasq.conf
+    networks:
+      - dnsmasq
+    ports:
+      - "53:53/udp"
+      - "8080:8080/tcp"
+
+networks:
+  dnsmasq:
+    name: dnsmasq
